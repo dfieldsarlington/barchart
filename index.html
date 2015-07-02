@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <style>
 
-.piechart rect {
+#piechart rect {
   fill: steelblue;
 }
 
@@ -13,7 +13,7 @@
 }
 
 </style>
-<svg class="piechart"></svg>
+<svg id="piechart"></svg>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
@@ -26,7 +26,7 @@ var x = d3.scale.linear()
     .domain([0, d3.max(data)])
     .range([0, width]);
 
-var chart = d3.select(".piechart")
+var chart = d3.select("#piechart")
     .attr("width", width)
     .attr("height", barHeight * data.length);
 

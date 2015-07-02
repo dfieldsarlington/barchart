@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<style type="text/css">
-.piechart rect {
+<style>
+
+.chart rect {
   fill: steelblue;
 }
-.piechart text {
+
+.chart text {
   fill: white;
   font: 10px sans-serif;
   text-anchor: end;
 }
+
 </style>
-<div id="piechart">
-<svg class="piechart"></svg>
+<svg class="chart"></svg>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
+
 var data = [4, 8, 15, 16, 23, 42];
 
 var width = 420,
@@ -23,7 +26,7 @@ var x = d3.scale.linear()
     .domain([0, d3.max(data)])
     .range([0, width]);
 
-var chart = d3.select("piechart")
+var chart = d3.select(".chart")
     .attr("width", width)
     .attr("height", barHeight * data.length);
 
@@ -43,4 +46,3 @@ bar.append("text")
     .text(function(d) { return d; });
 
 </script>
-</div>

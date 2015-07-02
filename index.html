@@ -14,6 +14,7 @@
 </style>
 <svg id="piechart"></svg>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="https://github.com/dfieldsarlington/barchart/blob/gh-pages/population.csv"></script>
 <script>
 
 var width = 420,
@@ -25,7 +26,7 @@ var x = d3.scale.linear()
 var chart = d3.select("#piechart")
     .attr("width", width);
 
-d3.csv("https://github.com/dfieldsarlington/barchart/blob/gh-pages/population.csv", type, function(error, data) {
+d3.csv("population.csv", type, function(error, data) {
   x.domain([0, d3.max(data, function(d) { return d.people; })]);
 
   chart.attr("height", barHeight * data.length);

@@ -29,7 +29,14 @@ var chart = d3.select("#barchart")
     .attr("width", width);
 
 d3.csv("population.csv", type, function(error, data) {
+// Convert strings to numbers.
+  data.forEach(function(d) {
+    d.people = +d.people;
+    d.year = +d.year;
+    d.age = +d.age;
+  });
   x.domain([0, d3.max(data, function(d) { return d.people; })]);
+  
 
   chart.attr("height", barHeight * data.length);
 

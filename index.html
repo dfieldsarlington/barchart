@@ -55,10 +55,4 @@ d3.csv("population.csv", type, function(error, data) {
       .attr("dy", ".35em")
       .text(function(d) { return d.people; });
 });
-
-function type(d) {
-  d.people = +d.people; // coerce to number
-  return d;
-}
-
 </script>

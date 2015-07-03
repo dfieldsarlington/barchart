@@ -29,9 +29,7 @@ var chart = d3.select("#barchart")
     .attr("width", width);
 
 d3.csv("population.csv", type, function(error, data) {
-
   x.domain([0, d3.max(data, function(d) { return d.people; })]);
-  
 
   chart.attr("height", barHeight * data.length);
 
@@ -51,12 +49,9 @@ d3.csv("population.csv", type, function(error, data) {
       .text(function(d) { return d.people; });
 });
 
-// Convert strings to numbers.
-  data.forEach(function(d) {
-    d.people = +d.people;
-    d.year = +d.year;
-    d.age = +d.age;
-   return d;
- });
+function type(d) {
+  d.people = +d.people; // coerce to number
+  return d;
+}
 
 </script>
